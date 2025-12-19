@@ -1,0 +1,5 @@
+name: liftover
+dependencies:
+  - gsl=2.5
+  - bcftools
+  - ucsc-liftover

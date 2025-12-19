@@ -1,0 +1,14 @@
+configfile: "config/config.yaml"
+
+VCF = config["vcf"]
+REFERENCE = config["reference"]
+TARGET_REFERENCE = config["target_reference"]
+CHAIN = config["chain"]
+OUTNAME = config["outname"]
+
+include: "rules/liftover-variants.smk" 
+
+rule all:
+	input:
+		expand("{results}/{outname}_liftover.vcf.gz", results = "results-" + OUTNAME, outname = OUTNAME),
+		expand("{results}/{outname}_liftover_fixedREF.vcf.gz", results = "results-" + OUTNAME, outname = OUTNAME)
